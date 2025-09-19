@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Activity, Home, User } from 'lucide-react';
+import { Activity, Home, User, Heart, Mail } from 'lucide-react';
 
 const Navigation = () => {
   const location = useLocation();
@@ -10,47 +10,65 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="bg-white">
+    <nav className="backdrop-blur-sm bg-black/20 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-2">
-             
-              <span className="font-bold text-xl text-black">DermaAi</span>
+            <Link to="/" className="flex items-center">
+              <span className="font-bold text-xl text-white">🏥DermaAi</span>
             </Link>
           </div>
           
           <div className="flex items-center space-x-8">
             <Link 
               to="/" 
-              className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 {
+              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                 isActive('/') 
-                  ? 'text-black bg-white' 
-                  : 'text-white '
+                  ? 'text-white bg-black/40' 
+                  : 'text-gray-200 hover:text-white hover:bg-black/30'
               }`}
             >
-              <Home className="h-4 w-4" />
-              <span>Home</span>
+              Home
             </Link>
             
-            <Link 
-              to="/analyze" 
-              className={`flex items-center  px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 {
-                isActive('/analyze')
-                  ? 'text-black bg-white'
-                  : 'text-black bg-white'
-              }`}
-            >
-            
-              <span>Analyze</span>
-            </Link>
+            <a 
+               href="https://www.healthline.com/health/skin-disorders" 
+               target="_blank"
+               rel="noopener noreferrer"
+               className="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-gray-200 hover:text-white hover:bg-black/30"
+             >
+               Analyze
+             </a>
+
+             <a 
+               href="https://www.mayoclinic.org/diseases-conditions/skin-care/symptoms-causes/syc-20377869" 
+               target="_blank"
+               rel="noopener noreferrer"
+               className="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-gray-200 hover:text-white hover:bg-black/30"
+             >
+               Skin Care
+             </a>
 
             <Link 
               to="/login" 
-              className="flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium text-black "
+              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                isActive('/login') 
+                  ? 'text-white bg-black/40' 
+                  : 'text-gray-200 hover:text-white hover:bg-black/30'
+              }`}
             >
-              <User className="h-4 w-4" />
-              <span>Login</span>
+              Login
+            </Link>
+
+            <Link 
+              to="/contact" 
+              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                isActive('/contact') 
+                  ? 'text-white bg-black/40' 
+                  : 'text-gray-200 hover:text-white hover:bg-black/30'
+              }`}
+            >
+              Contact
             </Link>
           </div>
         </div>
